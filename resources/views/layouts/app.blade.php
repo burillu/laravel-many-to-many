@@ -58,7 +58,7 @@
     <main>
         <div class="d-flex">
             <!-- sidebar -->
-            <div class="my-sidebar my-sidebar-lg bg-dark text-white" id="sidebar">
+            <div class="my-sidebar my-sidebar-lg text-white" id="sidebar">
                 <div class=" h-100 container-fluid">
                     <div class=" h-100 row">
                         <div class="col-sm-12">
@@ -70,15 +70,31 @@
                                             <i class="fa-solid fa-house"></i> <span class="px-1 d-none d-lg-inline">
                                                 Home</span></a>
                                     </div>
-                                    <!-- stats -->
+                                    <!-- projects -->
                                     <div class="my-btn p-2">
-                                        <i class="fa-solid fa-chart-simple"></i> <span class="px-1 d-none d-lg-inline">
-                                            Stats</span>
+                                        <a href="{{ route('admin.projects.index') }}">
+                                            <i class="fa-solid fa-diagram-project"></i>
+                                            <span class="px-1 d-none d-lg-inline">
+                                                Projects</span>
+                                        </a>
+
                                     </div>
-                                    <!-- Signal -->
+                                    <!-- types -->
                                     <div class="my-btn p-2">
-                                        <i class="fa-solid fa-signal"></i> <span class="px-1 d-none d-lg-inline">
-                                            Signal</span>
+                                        <a href="{{ route('admin.types.index') }}">
+                                            <i class="fa-solid fa-server"></i>
+                                            <span class="px-1 d-none d-lg-inline">
+                                                Types</span>
+                                        </a>
+
+                                    </div>
+                                    <div class="my-btn p-2">
+                                        <a href="{{ route('admin.technologies.index') }}">
+                                            <i class="fa-solid fa-code"></i>
+                                            <span class="px-1 d-none d-lg-inline">
+                                                Technologies</span>
+                                        </a>
+
                                     </div>
                                 </div>
                                 <div class="sidebar-bottom">
