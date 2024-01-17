@@ -260,12 +260,12 @@ public function user(){
 
 #nei model relazione many to many:
 
-#nel model Tag(one):
+#nel model Tag:
 public function posts(){
     return $this->belongToMany(Tag::class);
 }
 
-#nel model Post(many):
+#nel model Post:
 public function tags(){
     return $this->belongToMany(Post::class);
 }
