@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -30,8 +31,8 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::resource('types', TypeController::class)->parameters([
         'types' => 'type:slug'
     ]);
-    Route::resource('technologies', TypeController::class)->parameters([
-        'technologies' => 'technologies:slug'
+    Route::resource('technologies', TechnologyController::class)->parameters([
+        'technologies' => 'technology:slug'
     ]);
 });
 
