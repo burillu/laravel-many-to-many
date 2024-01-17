@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -29,7 +30,8 @@ class ProjectController extends Controller
     {
         //
         $types = Type::all();
-        return view("admin.projects.create", compact('types'));
+        $technologies = Technology::all();
+        return view("admin.projects.create", compact('types', 'technologies'));
     }
 
     /**
@@ -46,6 +48,9 @@ class ProjectController extends Controller
             $form_data['image'] = $path;
         }
         $project = Project::create($form_data);
+        if ($request->has('technologies')) {
+            $project->technologies()->attach($request->technologies);
+        }
 
         return to_route("admin.projects.show", $project->slug);
     }
@@ -66,7 +71,8 @@ class ProjectController extends Controller
     {
         //
         $types = Type::all();
-        return view("admin.projects.edit", compact("project", "types"));
+        $technologies = Technology::all();
+        return view("admin.projects.edit", compact("project", "types", "technologies"));
     }
 
     /**
@@ -83,6 +89,9 @@ class ProjectController extends Controller
             $form_data['image'] = $path;
         }
         $project->update($form_data);
+        if ($request->has('technologies')) {
+            $project->technologies()->sync($request->technologies);
+        }
         return to_route("admin.projects.show", $project->slug);
     }
 
@@ -90,7 +99,8 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
-    {
+    {   //toglie tutti i dati collegati
+        $project->technologies()->detach();
         //se il progetto contiene un immagine, alla cancellazione bisogna procedere anche alla cancellazione della stessa
         if ($project->image) {
             Storage::delete($project->image);

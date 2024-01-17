@@ -45,6 +45,18 @@
                             {{ $message }}
                         </div>
                     @enderror
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <h6>Select Technologies:</h6>
+                            @foreach ($technologies as $technology)
+                                <div class="form-check @error('technologies') is-invalid @enderror">
+                                    <input type="checkbox" name="technologies[]"
+                                        value="{{ $technology->id }}"{{ in_array($project->technologies, $technology->id) ? 'checked' : '' }}>
+                                    <label for="">{{ $technology->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
 
 
                     <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
