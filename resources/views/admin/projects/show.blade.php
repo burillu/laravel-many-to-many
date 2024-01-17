@@ -9,6 +9,11 @@
                     <div class="text-secondary">
                         <h4>Type :{{ $project->type?->name }}</h4>
                     </div>
+                    <div>
+                        @foreach ($project->technologies as $technology)
+                            <span class="badge rounded-pill my-badge-{{ $technology->slug }}">{{ $technology->name }}</span>
+                        @endforeach
+                    </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <pre class="mb-5">

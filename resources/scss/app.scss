@@ -44,7 +44,7 @@ pre {
 .my-sidebar {
     height: 100%;
     // background-image: url(../img/sidebar-bg.png);
-    background-color: var($my-dark-blue);
+    background-color: $my-dark-blue;
 }
 
 .my-logo-container {
@@ -91,15 +91,51 @@ img.my-img-avatar {
 /* my-backgrounds */
 
 .my-bg-dark-blue {
-    background-color: var($my-dark-blue);
+    background-color: $my-dark-blue;
 }
 
 .my-bg-blue {
-    background-color: var($my-blue-bar);
+    background-color: $my-blue-bar;
 }
 
 .my-blue-badge {
-    background-color: var($my-blue-badge);
+    background-color: $my-blue-badge;
+}
+
+.my-badge-html {
+    background-color: $my-blue-badge;
+}
+
+.my-badge-css {
+    background-color: $yellow-300;
+}
+
+.my-badge-bootstrap {
+    background-color: $indigo-500;
+}
+
+.my-badge-sass {
+    background-color: $pink-300;
+}
+
+.my-badge-vuejs {
+    background-color: $teal-600;
+}
+
+.my-badge-javascript {
+    background-color: $yellow-400;
+}
+
+.my-badge-php8 {
+    background-color: $blue-300;
+}
+
+.my-badge-sql {
+    background-color: $orange-500;
+}
+
+.my-badge-laravel {
+    background-color: $red;
 }
 
 /* media queries */
