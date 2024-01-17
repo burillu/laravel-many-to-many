@@ -18,6 +18,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([ProjectSeeder::class]); //si possono aggiungere altri seeder all'interno dell'array, ma devono essere in ordine per rispettare le relazioni delle relative tabelle.
+        $this->call([
+                //si possono aggiungere altri seeder all'interno dell'array, ma devono essere in ordine per rispettare le relazioni delle relative tabelle.
+            TypeSeeder::class,
+            TechnologySeeder::class,
+            ProjectSeeder::class
+
+        ]);
     }
 }
