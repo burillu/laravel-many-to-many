@@ -11,7 +11,10 @@
                     </div>
                     <div>
                         @foreach ($project->technologies as $technology)
-                            <span class="badge rounded-pill my-badge-{{ $technology->slug }}">{{ $technology->name }}</span>
+                            <a href="{{ route('admin.technologies.show', $technology->slug) }}">
+                                <span
+                                    class="badge rounded-pill my-badge-{{ $technology->slug }}">{{ $technology->name }}</span>
+                            </a>
                         @endforeach
                     </div>
                 </div>

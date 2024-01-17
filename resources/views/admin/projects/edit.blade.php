@@ -21,7 +21,8 @@
                     <select id="type_id" name="type_id" class="mb-3 form-control @error('type_id') is-invalid @enderror"
                         required>
                         @foreach ($types as $type)
-                            <option value="{{ $type->id }}"> {{ $type->name }}</option>
+                            <option value="{{ $type->id }}" @if ($project->type->id === $type->id) selected @endif>
+                                {{ $type->name }}</option>
                         @endforeach
                     </select>
                     @error('type_id')
@@ -51,7 +52,7 @@
                             @foreach ($technologies as $technology)
                                 <div class="form-check @error('technologies') is-invalid @enderror">
                                     <input type="checkbox" name="technologies[]"
-                                        value="{{ $technology->id }}"{{ in_array($project->technologies, $technology->id) ? 'checked' : '' }}>
+                                        value="{{ $technology->id }}"{{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
                                     <label for="">{{ $technology->name }}</label>
                                 </div>
                             @endforeach
