@@ -3,8 +3,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-8">
-                <h2 class="text-center"> Add new Type:</h2>
-                <form action="{{ route('admin.types.store') }}" method="POST">
+                <h2 class="text-center"> Add new Technology:</h2>
+                <form action="{{ route('admin.technologies.store') }}" method="POST">
                     {{-- token --}}
                     @csrf
                     <label for="name">Name:</label>

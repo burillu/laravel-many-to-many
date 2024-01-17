@@ -18,15 +18,16 @@
                     <form action="{{ route('admin.types.destroy', $type->slug) }}" method="Post" class="d-flex">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger"><i
-                                class="fa-regular fa-trash-can text-white"></i></a></button>
+                        <button type="submit" class="btn btn-danger cancel-button" data-item-title="{{ $type->name }}">
+                            <i class="fa-regular fa-trash-can text-white"></i>
+                        </button>
                     </form>
-                    <button class="btn btn-outline-dark"><a href="{{ route('admin.types.create') }}"><i
-                                class="fa-sharp fa-solid fa-plus"></i>Add new type</a></button>
+
                 </div>
             </div>
 
 
         </div>
     </section>
+    @include('partials.modal_delete')
 @endsection
