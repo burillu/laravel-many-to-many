@@ -105,6 +105,9 @@ export default defineConfig({
 php artisan vendor:publish --tag=laravel-errors
 php artisan vendor:publish --tag=laravel-pagination
 
+# per visualizzare e modificare le lingue disponibili
+php artisan lang::publish
+
 #comandi git
 
 git init
